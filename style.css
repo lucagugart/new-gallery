@@ -17,27 +17,40 @@ header {
 header h1 {
     font-size: 2em;
 }
-/* space before filters */
+
+/* spacing before filters */
 .filters-wrapper {
-  margin: 20px 0 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
-/* single-row filters */
+/* horizontal alignment */
 .filters {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap; /* graceful on small screens */
+  flex-wrap: wrap;
 }
 
-/* standard width for dropdowns */
+/* ALL selects identical height */
 .filters select {
   min-width: 180px;
+  height: 36px;
+  padding: 6px 8px;
+  line-height: 22px;
+  font-size: 14px;
 }
 
-/* button alignment */
+/* force multi-select to LOOK like single select */
+.filters select[multiple] {
+  height: 36px;        /* override browser default */
+  overflow: hidden;   /* hide extra options */
+}
+
+/* clear button alignment */
 .filters button {
   height: 36px;
+  padding: 0 14px;
   cursor: pointer;
 }
 
