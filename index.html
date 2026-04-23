@@ -18,40 +18,39 @@
 </head>
 <body>
 
-<header>
-  <h1>My Art Gallery</h1>
-  <p>Explore my collection of artworks</p>
-</header>
+  <header>
+    <h1>My Art Gallery</h1>
+    <p>Explore my collection of artworks</p>
+  </header>
 
-<!-- Filters -->
-<div class="filters">
-  <select id="yearFilter">
-    <option value="">Filter by Year</option>
-  </select>
+  <!-- Filters -->
+  <div class="filters">
+    <select id="yearFilter">
+      <option value="">Filter by Year</option>
+    </select>
 
-  <select id="categoryFilter">
-    <option value="">Filter by Category</option>
-  </select>
+    <!-- Multi-selects: options are populated by script.js -->
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <select id="categoryFilter" multiple size="6" aria-label="Filter by Category (multi-select)"></select>
+      <select id="seriesFilter" multiple size="6" aria-label="Filter by Series (multi-select)"></select>
+      <small style="opacity:.8;">Tip: hold Ctrl (Windows) or Cmd (Mac) to select multiple.</small>
+    </div>
 
-  <select id="seriesFilter">
-    <option value="">Filter by Series</option>
-  </select>
+    <button id="clearFiltersBtn" type="button">Clear filters</button>
+  </div>
 
-  <button id="clearFiltersBtn" type="button">Clear filters</button>
-</div>
+  <!-- Gallery -->
+  <div class="gallery"></div>
 
-<!-- Gallery -->
-<div class="gallery"></div>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full View">
+  </div>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="Full View">
-</div>
+  <footer>
+    <p>© 2025 My Art Gallery — Hosted on GitHub Pages</p>
+  </footer>
 
-<footer>
-  <p>© 2026 My Art Gallery — Hosted on GitHub Pages</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
