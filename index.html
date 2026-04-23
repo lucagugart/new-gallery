@@ -1,5 +1,5 @@
 <!--
-APP_VERSION: v0.11
+APP_VERSION: v0.12
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,8 @@ APP_VERSION: v0.11
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Art Gallery v0.11</title>
-  <meta name="description" content="Explore my collection of artworks including collages, panels, and covers.  Version 0.4">
+  <title>My Art Gallery v0.12</title>
+  <meta name="description" content="Explore my collection of artworks including collages, panels, and covers.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
@@ -18,16 +18,16 @@ APP_VERSION: v0.11
 
   <!-- CSS -->
 
-  <link rel="stylesheet" href="style.css?v=0.11">
-  <script src="script.js?v=0.11"></script>
+  <link rel="stylesheet" href="style.css?v=0.12">
+  <script src="script.js?v=0.12"></script>
 
 </head>
 <body>
 
   <header>
     <h1>
-      My Art Gallery v0.11
-     <span class="version">v0.11</span>
+      My Art Gallery v0.12
+     <span class="version">v0.12</span>
     </h1>
     <p>Explore my collection of artworks</p>
   </header>
@@ -56,14 +56,28 @@ APP_VERSION: v0.11
   <!-- Gallery -->
   <div class="gallery"></div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close" onclick="closeLightbox()">×</button>
+
+  <button id="lightbox-prev" class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>
+
+  <div class="lightbox-content" role="dialog" aria-modal="true">
     <img id="lightbox-img" src="" alt="Full View">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+    <div id="lightbox-counter" class="lightbox-counter"></div>
+
+    <div id="lightbox-thumbs" class="lightbox-thumbs" aria-label="Thumbnails"></div>
   </div>
+
+  <button id="lightbox-next" class="lightbox-nav next" type="button" aria-label="Next image">›</button>
+</div>
+
 
 
 <footer>
-  <p>© 2025 My Art Gallery · v0.11 · Hosted on GitHub Pages</p>
+  <p>© 2025 My Art Gallery · v0.12 · Hosted on GitHub Pages</p>
 </footer>
 
 </body>
