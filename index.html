@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Art Gallery</title>
+    <meta name="description" content="Explore my collection of artworks including collages, panels, and covers.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph (Social Sharing) 
+    <meta property="og:title" content="My Art Gallery">
+    <meta property="og:description" content="Explore my collection of artworks including collages, panels, and covers.">
+    <meta property="og:image" content="https://<your-username>.github.io/art-gallery/images/screenshot.png">
+    <meta property="og:url" content="https://<your-username>.github.io/art-gallery">
+    <meta property="og:type" content="website">
+    -->
+
+    <!-- Twitter Card 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Art Gallery">
+    <meta name="twitter:description" content="Explore my collection of artworks including collages, panels, and covers.">
+    <meta name="twitter:image" content="https://<your-username>.github.io/art-gallery/images/screenshot.png">
+    -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Art Gallery #2.2</h1>
+        <p>Explore my collection of artworks</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="filters">
+        <select id="yearFilter">
+            <option value="">Filter by Year</option>
+        </select>
+        <select id="categoryFilter">
+            <option value="">Filter by Category</option>
+        </select>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Full View">
+    </div>
+
+    <footer>
+        <p>© 2025 My Art Gallery | Hosted on GitHub Pages</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
