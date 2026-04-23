@@ -55,40 +55,48 @@ select {
 }
 
 .art-card {
-    max-width: 360px;   /* ✅ hard cap for card width */
-    width: 100%;
-    margin: 0 auto;     /* ✅ centers cards when few */
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    overflow: hidden;
-    text-align: center;
-    padding: 10px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;              /* allows equal-height behavior */
 }
 
+/* fixed visual area for images */
 .art-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    max-height: 260px;     /* ✅ prevents very tall schede */
-    object-fit: contain;
+  width: 100%;
+  height: 240px;             /* ✅ key change */
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.art-card img:hover {
-    transform: scale(1.05);
-}
-
+/* text layout */
 .art-card h3 {
-    margin: 10px 0 5px;
-    font-size: 1.2em;
+  margin: 10px 0 6px;
+  font-size: 1.1em;
 }
 
 .art-card p {
-    margin: 5px 0;
-    font-size: 0.9em;
-    color: #555;
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* optional: clamp long descriptions */
+.art-card p:last-child {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;     /* ✅ same number of lines */
+  -webkit-box-orient: vertical;
 }
 
 .lightbox {
