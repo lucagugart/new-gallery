@@ -19,11 +19,25 @@ header h1 {
 }
 
 .filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap; /* keeps layout usable on small screens */
+}
+
+.filters select {
+  min-width: 180px;
+}
+
+.filters select[multiple] {
+  height: auto; /* respects size attribute */
+}
+
+.filter-hint {
+  display: block;
+  margin: 6px 0 12px;
+  font-size: 0.85em;
+  opacity: 0.8;
 }
 
 select {

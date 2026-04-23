@@ -23,21 +23,33 @@
     <p>Explore my collection of artworks</p>
   </header>
 
-  <!-- Filters -->
-  <div class="filters">
+
+    <div class="filters">
     <select id="yearFilter">
-      <option value="">Filter by Year</option>
+        <option value="">Filter by Year</option>
     </select>
 
-    <!-- Multi-selects: options are populated by script.js -->
-    <div style="display:flex; flex-direction:column; gap:6px;">
-      <select id="categoryFilter" multiple size="6" aria-label="Filter by Category (multi-select)"></select>
-      <select id="seriesFilter" multiple size="6" aria-label="Filter by Series (multi-select)"></select>
-      <small style="opacity:.8;">Tip: hold Ctrl (Windows) or Cmd (Mac) to select multiple.</small>
-    </div>
+    <select
+        id="categoryFilter"
+        multiple
+        size="6"
+        aria-label="Filter by Category (multi-select)"
+    ></select>
+
+    <select
+        id="seriesFilter"
+        multiple
+        size="6"
+        aria-label="Filter by Series (multi-select)"
+    ></select>
 
     <button id="clearFiltersBtn" type="button">Clear filters</button>
-  </div>
+    </div>
+
+    <small class="filter-hint">
+    Tip: hold Ctrl (Windows) or Cmd (Mac) to select multiple.
+    </small>
+
 
   <!-- Gallery -->
   <div class="gallery"></div>
