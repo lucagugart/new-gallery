@@ -17,6 +17,15 @@ fetch("artworks.json")
     applyFilters();
   });
 
+
+function cleanText(v) {
+  if (v === null || v === undefined) return "";
+  const s = String(v).trim();
+  // treat common placeholders as empty
+  if (s === "" || s.toLowerCase() === "none" || s.toLowerCase() === "null") return "";
+  return s;
+}
+
 function setupFilters() {
   ["yearFilter", "categoryFilter", "seriesFilter"].forEach(id =>
     document.getElementById(id).addEventListener("change", applyFilters)
@@ -51,11 +60,11 @@ function applyFilters() {
   if (year) filtered = filtered.filter(a => String(a.year) === String(year));
   if (category)
     filtered = filtered.filter(a =>
-      category === NONE ? !a.category : a.category === category
+      category === NONE ? !cleanText(a.category) : cleanText(a.category) === category
     );
   if (series)
     filtered = filtered.filter(a =>
-      series === NONE ? !a.series : a.series === series
+      series === NONE ? !cleanText(a.series) : cleanText(a.series) === series
     );
 
   renderGallery(filtered);
@@ -78,7 +87,12 @@ function updateFilterOptions(year, category, series) {
     .filter(a => !year || String(a.year) === String(year))
     .filter(a => !series || (series === NONE ? !a.series : a.series === series));
 
-  const cats = [...new Set(catsSource.filter(a => a.category).map(a => a.category))].sort();
+  const cats = [...new Set(
+   catsSource
+    .map(a => cleanText(a.category))
+    .filter(v => v)           // removes "", null, "None"
+  )].sort();
+ 
   if (catsSource.some(a => !a.category)) cats.unshift(NONE);
 
   setOptions("categoryFilter", "Category", cats, category,
@@ -88,7 +102,12 @@ function updateFilterOptions(year, category, series) {
     .filter(a => !year || String(a.year) === String(year))
     .filter(a => !category || (category === NONE ? !a.category : a.category === category));
 
-  const sers = [...new Set(seriesSource.filter(a => a.series).map(a => a.series))].sort();
+
+  const sers = [...new Set(
+    seriesSource
+    .map(a => cleanText(a.series))
+    .filter(v => v)
+  )].sort();
   if (seriesSource.some(a => !a.series)) sers.unshift(NONE);
 
   setOptions("seriesFilter", "Series", sers, series,
@@ -164,13 +183,21 @@ function renderGallery(data) {
     h3.textContent = art.title;
 
     const meta = document.createElement("p");
-    meta.textContent =
-      `${art.year} • ${art.category || LABEL_NO_CATEGORY} • ${art.series || LABEL_NO_SERIES}`;
+    const catLabel = cleanText(art.category) || LABEL_NO_CATEGORY;
+    const serLabel = cleanText(art.series) || LABEL_NO_SERIES;
+    meta.textContent = `${art.year} • ${catLabel} • ${serLabel}`;
 
+
+    const descText = cleanText(art.description);
+    if (descText) {
     const desc = document.createElement("p");
-    desc.textContent = art.description || "";
-
+    desc.textContent = descText;
     card.append(img, h3, meta, desc);
+    } else {
+    // no description -> don't add the <p> at all (cleaner layout)
+    card.append(img, h3, meta);
+    }
+
     gallery.appendChild(card);
   });
 }
@@ -219,7 +246,7 @@ function renderLightbox() {
   imgEl.src = current.src;
 
   // caption + counter
-  capEl.textContent = current.caption || "";
+  capEl.textContent = cleanText(current.caption);
   ctrEl.textContent = lightboxImages.length > 1 ? `${lightboxIndex + 1} / ${lightboxImages.length}` : "";
 
   // show/hide navigation
