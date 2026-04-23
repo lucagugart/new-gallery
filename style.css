@@ -46,13 +46,18 @@ select {
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+
+  /* prevents cards from stretching vertically */
+  align-items: start;
 }
 
 .art-card {
+    max-width: 360px;   /* ✅ hard cap for card width */
+    width: 100%;
+    margin: 0 auto;     /* ✅ centers cards when few */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -67,6 +72,8 @@ select {
     border-radius: 6px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    max-height: 260px;     /* ✅ prevents very tall schede */
+    object-fit: contain;
 }
 
 .art-card img:hover {
