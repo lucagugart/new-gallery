@@ -1,10 +1,13 @@
+<!--
+APP_VERSION: v0.10
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Art Gallery</title>
+  <title>My Art Gallery v0.10</title>
   <meta name="description" content="Explore my collection of artworks including collages, panels, and covers.  Version 0.4">
 
   <!-- Favicon -->
@@ -14,15 +17,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css?v=0.10">
+  <script src="script.js?v=0.10"></script>
+
 </head>
 <body>
 
   <header>
-    <h1>My Art Gallery   0.10</h1>
+    <h1>
+      My Art Gallery v0.10
+     <span class="version">v0.10</span>
+    </h1>
     <p>Explore my collection of artworks</p>
   </header>
-
 
 <!-- Filters -->
 <div class="filters-wrapper">
@@ -53,10 +61,10 @@
     <img id="lightbox-img" src="" alt="Full View">
   </div>
 
-  <footer>
-    <p>© 2025 My Art Gallery — Hosted on GitHub Pages</p>
-  </footer>
 
-  <script src="script.js?51e36b1"></script>
+<footer>
+  <p>© 2025 My Art Gallery · v0.10 · Hosted on GitHub Pages</p>
+</footer>
+
 </body>
 </html>
