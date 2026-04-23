@@ -17,27 +17,36 @@ header {
 header h1 {
     font-size: 2em;
 }
-
-.filters {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  flex-wrap: wrap; /* keeps layout usable on small screens */
+/* space before filters */
+.filters-wrapper {
+  margin: 20px 0 24px;
 }
 
+/* single-row filters */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* graceful on small screens */
+}
+
+/* standard width for dropdowns */
 .filters select {
   min-width: 180px;
 }
 
-.filters select[multiple] {
-  height: auto; /* respects size attribute */
+/* button alignment */
+.filters button {
+  height: 36px;
+  cursor: pointer;
 }
 
+/* hint text */
 .filter-hint {
   display: block;
-  margin: 6px 0 12px;
+  margin-top: 6px;
   font-size: 0.85em;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 select {

@@ -24,31 +24,32 @@
   </header>
 
 
-    <div class="filters">
+<!-- Filters -->
+<div class="filters-wrapper">
+  <div class="filters">
     <select id="yearFilter">
-        <option value="">Filter by Year</option>
+      <option value="">Filter by Year</option>
     </select>
 
     <select
-        id="categoryFilter"
-        multiple
-        size="6"
-        aria-label="Filter by Category (multi-select)"
+      id="categoryFilter"
+      multiple
+      aria-label="Filter by Category (multi-select)"
     ></select>
 
     <select
-        id="seriesFilter"
-        multiple
-        size="6"
-        aria-label="Filter by Series (multi-select)"
+      id="seriesFilter"
+      multiple
+      aria-label="Filter by Series (multi-select)"
     ></select>
 
     <button id="clearFiltersBtn" type="button">Clear filters</button>
-    </div>
+  </div>
 
-    <small class="filter-hint">
+  <small class="filter-hint">
     Tip: hold Ctrl (Windows) or Cmd (Mac) to select multiple.
-    </small>
+  </small>
+</div>
 
 
   <!-- Gallery -->
