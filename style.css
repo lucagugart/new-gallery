@@ -17,14 +17,10 @@ header {
 header h1 {
     font-size: 2em;
 }
-
-/* spacing before filters */
 .filters-wrapper {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
 
-/* horizontal alignment */
 .filters {
   display: flex;
   align-items: center;
@@ -32,34 +28,16 @@ header h1 {
   flex-wrap: wrap;
 }
 
-/* ALL selects identical height */
-.filters select {
-  min-width: 180px;
+.filters select,
+.filters button {
   height: 36px;
-  padding: 6px 8px;
-  line-height: 22px;
+  min-width: 160px;
+  padding: 6px 10px;
   font-size: 14px;
 }
 
-/* force multi-select to LOOK like single select */
-.filters select[multiple] {
-  height: 36px;        /* override browser default */
-  overflow: hidden;   /* hide extra options */
-}
-
-/* clear button alignment */
 .filters button {
-  height: 36px;
-  padding: 0 14px;
   cursor: pointer;
-}
-
-/* hint text */
-.filter-hint {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.85em;
-  opacity: 0.75;
 }
 
 select {
